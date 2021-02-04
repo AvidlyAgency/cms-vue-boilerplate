@@ -8,7 +8,7 @@ import '@/index.scss';
 Vue.config.productionTip = false;
 
 const targetModulesData = document.querySelectorAll(
-  '.cms-vue-boilerplate > script[type="application/json"]',
+  '.vue-cards > script[type="application/json"]',
 );
 
 targetModulesData.forEach(({ dataset, textContent }) => {

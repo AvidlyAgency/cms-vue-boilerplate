@@ -2,7 +2,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HubSpotAutoUploadPlugin = require('@hubspot/webpack-cms-plugins/HubSpotAutoUploadPlugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const hubspotConfig = ({ portal, autoupload } = {}) => {
@@ -43,17 +42,19 @@ const hubspotConfig = ({ portal, autoupload } = {}) => {
         },
         {
           test: /\.s[ac]ss$/i,
+          exclude: /node_modules/,
           use: [
             'vue-style-loader',
             MiniCssExtractPlugin.loader,
-            { loader: 'css-loader', options: { url: false } },
             {
-              loader: 'postcss-loader',
+              loader: 'css-loader',
               options: {
-                plugins: () => [autoprefixer()],
+                importLoaders: 1,
               },
             },
-            'sass-loader',
+            {
+              loader: 'postcss-loader',
+            },
           ],
         },
         {

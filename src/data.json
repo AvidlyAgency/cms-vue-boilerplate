@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "module_width": "page",
+    "module_spacing_top": "medium",
+    "module_spacing_bottom": "medium",
+    "background_color": "white"
+  },
+  "cards": [
+    {
+      "subheading": "A subheading can elaborate",
+      "content": "<h3>This is a heading and can be in multiple lines</h3><p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.</p>",
+      "link": {
+        "url": {
+          "type": "EXTERNAL",
+          "content_id": null,
+          "href": "https://www.avidlyagency.com"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      },
+      "image": {
+        "src": "https://www.avidlyagency.com/hubfs/avidly-theme/assets/aa-image.png"
+      }
+    },
+    {
+      "subheading": "A subheading can elaborate",
+      "content": "<h3>This is a heading and can be in multiple lines</h3><p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.</p>",
+      "link": {
+        "url": {
+          "type": "EXTERNAL",
+          "content_id": null,
+          "href": "https://www.avidlyagency.com"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      },
+      "image": {
+        "src": "https://www.avidlyagency.com/hubfs/avidly-theme/assets/aa-image.png"
+      }
+    }
+  ],
+  "card_settings": {
+    "overlay": false,
+    "overlay_color": "dark",
+    "content_color": "light"
+  },
+  "type": "module",
+  "enabled": true
+}

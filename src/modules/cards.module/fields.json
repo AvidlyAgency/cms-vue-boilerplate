@@ -1,0 +1,273 @@
+[
+    {
+        "id": "enabled",
+        "name": "enabled",
+        "label": "Enabled",
+        "help_text": "You can disable the module, to temporarily hide it.",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "default": true
+    },
+    {
+        "id": "settings",
+        "name": "settings",
+        "label": "Module Settings",
+        "required": false,
+        "locked": false,
+        "children": [
+            {
+                "id": "settings.aa_module_id",
+                "name": "aa_module_id",
+                "label": "ID",
+                "help_text": "Use this as an anchor link, use lowercase and no spaces or special characters",
+                "required": false,
+                "locked": false,
+                "validation_regex": "^[a-zA-Z0-9_]*$",
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "type": "text",
+                "default": null
+            },
+            {
+                "id": "settings.module_width",
+                "name": "module_width",
+                "label": "Module Width",
+                "required": true,
+                "locked": false,
+                "display": "select",
+                "choices": [
+                    ["page", "Page Width"],
+                    ["full", "Full Width"]
+                ],
+                "type": "choice",
+                "default": "page"
+            },
+            {
+                "id": "settings.module_spacing_top",
+                "name": "module_spacing_top",
+                "label": "Module Spacing - Top",
+                "help_text": "Control the spacing on the top of the module",
+                "required": true,
+                "locked": false,
+                "display": "select",
+                "choices": [
+                    ["none", "None"],
+                    ["small", "Small"],
+                    ["medium", "Medium"],
+                    ["large", "Large"]
+                ],
+                "type": "choice",
+                "default": "medium"
+            },
+            {
+                "id": "settings.module_spacing_bottom",
+                "name": "module_spacing_bottom",
+                "label": "Module Spacing - Bottom",
+                "help_text": "Control the spacing on the bottom of the module",
+                "required": true,
+                "locked": false,
+                "display": "select",
+                "choices": [
+                    ["none", "None"],
+                    ["small", "Small"],
+                    ["medium", "Medium"],
+                    ["large", "Large"]
+                ],
+                "type": "choice",
+                "default": "medium"
+            },
+            {
+                "id": "settings.background_color",
+                "name": "background_color",
+                "label": "Background Color",
+                "required": true,
+                "locked": false,
+                "display": "select",
+                "choices": [
+                    ["primary", "Primary"],
+                    ["secondary", "Secondary"],
+                    ["complementary", "Complementary"],
+                    ["light", "Light"],
+                    ["dark", "Dark"],
+                    ["white", "White"]
+                ],
+                "type": "choice",
+                "default": "white"
+            }
+        ],
+        "tab": "CONTENT",
+        "type": "group",
+        "default": {
+            "module_width": "page",
+            "module_spacing_top": "medium",
+            "module_spacing_bottom": "medium",
+            "background_color": "white"
+        }
+    },
+    {
+        "id": "card_settings",
+        "name": "card_settings",
+        "label": "Card Settings",
+        "required": false,
+        "locked": false,
+        "children": [
+            {
+                "id": "card_settings.overlay",
+                "name": "overlay",
+                "label": "Overlay Content",
+                "help_text": "Overlay the content on the image",
+                "required": false,
+                "locked": false,
+                "type": "boolean",
+                "default": false
+            },
+            {
+                "id": "card_settings.overlay_color",
+                "name": "overlay_color",
+                "label": "Overlay Color",
+                "required": true,
+                "locked": false,
+                "visibility": {
+                    "controlling_field": "card_settings.overlay",
+                    "controlling_value_regex": "true",
+                    "operator": "EQUAL",
+                    "access": null,
+                    "hidden_subfields": null
+                },
+                "display": "select",
+                "type": "choice",
+                "choices": [
+                    ["primary", "Primary"],
+                    ["secondary", "Secondary"],
+                    ["complementary", "Complementary"],
+                    ["light", "Light"],
+                    ["dark", "Dark"],
+                    ["white", "White"]
+                ],
+                "default": "dark"
+            },
+            {
+                "id": "card_settings.content_color",
+                "name": "content_color",
+                "label": "Content Color",
+                "required": true,
+                "locked": false,
+                "visibility": {
+                    "controlling_field": "card_settings.overlay",
+                    "controlling_value_regex": "true",
+                    "operator": "EQUAL",
+                    "access": null,
+                    "hidden_subfields": null
+                },
+                "display": "select",
+                "choices": [
+                    ["light", "Light"],
+                    ["dark", "Dark"]
+                ],
+                "type": "choice",
+                "default": "light"
+            }
+        ],
+        "tab": "CONTENT",
+        "type": "group",
+        "default": {
+            "overlay": false,
+            "overlay_color": "dark",
+            "content_color": "light"
+        }
+    },
+    {
+        "id": "cards",
+        "name": "cards",
+        "label": "Cards",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+            "min": 2,
+            "max": 4,
+            "sorting_label_field": "content",
+            "default": 2
+        },
+        "children": [
+            {
+                "id": "cards.subheading",
+                "name": "subheading",
+                "label": "Subheading",
+                "required": false,
+                "locked": false,
+                "validation_regex": "",
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "type": "text",
+                "default": "A subheading can elaborate"
+            },
+            {
+                "id": "cards.content",
+                "name": "content",
+                "label": "Content",
+                "required": false,
+                "locked": false,
+                "type": "richtext",
+                "default": "<h3>This is a heading and can be in multiple lines</h3><p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.</p>"
+            },
+            {
+                "id": "cards.link",
+                "name": "link",
+                "label": "Link",
+                "required": false,
+                "locked": false,
+                "supported_types": [
+                    "EXTERNAL",
+                    "CONTENT",
+                    "FILE",
+                    "EMAIL_ADDRESS",
+                    "BLOG"
+                ],
+                "type": "link",
+                "default": {
+                    "url": {
+                        "type": "EXTERNAL",
+                        "href": "https://www.avidlyagency.com",
+                        "content_id": null
+                    },
+                    "open_in_new_tab": false,
+                    "no_follow": false
+                }
+            },
+            {
+                "id": "cards.image",
+                "name": "image",
+                "label": "Image",
+                "required": false,
+                "locked": false,
+                "responsive": false,
+                "resizable": false,
+                "type": "image",
+                "default": {
+                    "src": "https://www.avidlyagency.com/hubfs/avidly-theme/assets/aa-image.png"
+                }
+            }
+        ],
+        "tab": "CONTENT",
+        "type": "group",
+        "default": [
+            {
+                "subheading": "A subheading can elaborate",
+                "image": {
+                    "src": "https://www.avidlyagency.com/hubfs/avidly-theme/assets/aa-image.png",
+                    "alt": "Image"
+                },
+                "content": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings."
+            },
+            {
+                "subheading": "A subheading can elaborate",
+                "image": {
+                    "src": "https://www.avidlyagency.com/hubfs/avidly-theme/assets/aa-image.png",
+                    "alt": "Image"
+                },
+                "content": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings."
+            }
+        ]
+    }
+]
